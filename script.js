@@ -21,8 +21,8 @@ const readFile = async (file) => {
   textJson = JSON.parse(text);
   try {
     window['mpdUri'] = textJson['mpdUri'];
-    window['initData'] = textJson['initData'];
-    window['response'] = textJson['response'];
+    window['initData'] = new Uint8Array(textJson['initData']);
+    window['response'] = new Uint8Array(textJson['response']);
   } catch (e) {
     console.error('Error parsing file: missing field(s).');
     return;
