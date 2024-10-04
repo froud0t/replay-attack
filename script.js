@@ -27,6 +27,7 @@ const readFile = async (file) => {
     console.error('Error parsing file: missing field(s).');
     return;
   }
+  console.log(window['initData']);
   initPlayer();
   console.log("Done parsing file");
 };
