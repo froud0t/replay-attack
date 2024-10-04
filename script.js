@@ -20,9 +20,9 @@ const readFile = async (file) => {
   const text = await file.text();
   textJson = JSON.parse(text);
   try {
-    window['mpdUri'] = textJson['player']['mpdUri'];
-    window['initData'] = textJson['player']['initData'];
-    window['response'] = textJson['player']['response'];
+    window['mpdUri'] = textJson['mpdUri'];
+    window['initData'] = textJson['initData'];
+    window['response'] = textJson['response'];
   } catch (e) {
     console.error('Error parsing file: missing field(s).');
     return;
