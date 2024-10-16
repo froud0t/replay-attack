@@ -21,13 +21,11 @@ const readFile = async (file) => {
   textJson = JSON.parse(text);
   try {
     window['mpdUri'] = textJson['mpdUri'];
-    // window['initData'] = new Uint8Array(textJson['initData']);
     window['response'] = new Uint8Array(textJson['response']);
   } catch (e) {
     console.error('Error parsing file: missing field(s).');
     return;
   }
-  console.log(window['initData']);
   initPlayer();
   console.log("Done parsing file");
 };
@@ -66,7 +64,7 @@ async function initPlayer() {
   player.configure({
     drm: {
       servers: {
-        'com.widevine.alpha': 'https://cwip-shaka-proxy.appspot.com/no_auth'
+        'com.widevine.alpha': '0.0.0.0'
       }
     }
   });
