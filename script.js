@@ -26,6 +26,8 @@ const readFile = async (file) => {
     console.error('Error parsing file: missing field(s).');
     return;
   }
+  if (textJson['cert'])
+    window['cert'] = new Uint8Array(textJson['cert']);
   initPlayer();
   console.log("Done parsing file");
 };
